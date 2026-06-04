@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-func TestPrintPrintsHelloMessageToTerminal(t *testing.T) {
+func TestPrintsHelloMessageToTerminal(t *testing.T) {
 	t.Parallel()
 	hello.Print()
-
 }
