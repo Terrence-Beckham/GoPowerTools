@@ -1,11 +1,18 @@
 package hello_test
 
 import (
-	"hello"
+	"bytes"
 	"testing"
+	"github.com/terrence-beckham/hello"
 )
 
-func TestPrintsHelloMessageToTerminal(t *testing.T) {
+func TestPrintsHelloMessageToGivenWriter(t *testing.T) {
 	t.Parallel()
-	hello.Print()
+	buf := new(bytes.Buffer)
+	hello.PrintTo(buf)
+	want := "Hello, world\n"
+	got := buf.String()
+	if want != got {
+		t.Fatalf("want %q, got %q",want, got)
+	}
 }
